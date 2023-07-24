@@ -1,8 +1,11 @@
+#!/usr/bin/python3
+
 import undetected_chromedriver as uc 
 import time
 from selenium.webdriver.common.by import By 
- 
-driver = uc.Chrome() 
+
+
+driver = uc.Chrome(browser_executable_path="/snap/bin/chromium") 
 driver.get("https://www.immobilienscout24.de/expose/143404064")
  
 time.sleep(5)
