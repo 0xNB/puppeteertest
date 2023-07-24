@@ -74,4 +74,4 @@ def scrapeImmoscoutId(immoscoutUrl):
     realEstateJson = json.dumps(realEstate)
     print(realEstateJson)
     
-scrapeImmoscoutId("https://www.immobilienscout24.de/expose/143404064")
+scrapeImmoscoutId("https://www.immobilienscout24.de/expose/144521476")
