@@ -5,7 +5,6 @@ import time
 from selenium.webdriver.common.by import By 
 import json
 
-
 # @Table
 # export class RealEstate extends Model {
 #   @Column
