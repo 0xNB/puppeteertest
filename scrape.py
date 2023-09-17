@@ -36,7 +36,7 @@ def scrapeImmoscoutId(immoscoutUrl):
     driver = uc.Chrome(browser_executable_path="/snap/bin/chromium") 
     driver.get(immoscoutUrl)
     
-    time.sleep(10)
+    time.sleep(15)
     
     realEstate = {
         'title': 'NAN',
