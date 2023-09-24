@@ -1,3 +1,7 @@
+# Immoscout Crawler
+
+This repository contains experimental code for crawling the immoscout website.
+
 # Requirements
 
 To use under linux you need to install chromium first:
