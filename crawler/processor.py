@@ -6,11 +6,6 @@ from crawler.default_processors import AddressResolver
 from crawler.default_processors import Filter
 from crawler.default_processors import LambdaProcessor
 from crawler.default_processors import CrawlExposeDetails
-from crawler.sender_mattermost import SenderMattermost
-from crawler.sender_apprise import SenderApprise
-from crawler.sender_telegram import SenderTelegram
-from crawler.sender_slack import SenderSlack
-from crawler.gmaps_duration_processor import GMapsDurationProcessor
 from crawler.idmaintainer import SaveAllExposesProcessor
 from crawler.abstract_processor import Processor
 
@@ -24,15 +19,8 @@ class ProcessorChainBuilder:
 
     def send_messages(self, receivers=None):
         """Add processor that sends messages for exposes"""
+        """currently not supported since no notifiers configured"""
         notifiers = self.config.notifiers()
-        if 'telegram' in notifiers:
-            self.processors.append(SenderTelegram(self.config, receivers=receivers))
-        if 'mattermost' in notifiers:
-            self.processors.append(SenderMattermost(self.config))
-        if 'apprise' in notifiers:
-            self.processors.append(SenderApprise(self.config))
-        if 'slack' in notifiers:
-            self.processors.append(SenderSlack(self.config))
         return self
 
     def resolve_addresses(self):
@@ -42,10 +30,7 @@ class ProcessorChainBuilder:
 
     def calculate_durations(self):
         """Add processor to calculate durations, if enabled"""
-        durations_enabled = "google_maps_api" in self.config \
-                            and self.config["google_maps_api"]["enable"]
-        if durations_enabled:
-            self.processors.append(GMapsDurationProcessor(self.config))
+        """currently not supported since not in g cloud"""
         return self
 
     def crawl_expose_details(self):
