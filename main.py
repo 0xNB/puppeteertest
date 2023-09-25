@@ -3,7 +3,6 @@ import os
 
 from crawler.argument_parser import parse
 from crawler.idmaintainer import IdMaintainer
-from crawler.googlecloud_idmaintainer import GoogleCloudIdMaintainer
 from crawler.web_hunter import WebHunter
 from crawler.config import Config
 from crawler.logging import configure_logging
@@ -21,11 +20,6 @@ else:
 if __name__ == '__main__':
     # Use the SQLite DB file if we are running locally
     id_watch = IdMaintainer(f'{config.database_location()}/processed_ids.db')
-else:
-    # Load the driver manager from local cache (if chrome_driver_install.py has been run
-    os.environ['WDM_LOCAL'] = '1'
-    # Use Google Cloud DB if we run on the cloud
-    id_watch = GoogleCloudIdMaintainer(config)
 
 configure_logging(config)
 
