@@ -3,7 +3,7 @@
 import argparse
 import os
 
-from flathunter.config import Env
+from crawler.config import Env
 
 
 def parse():
